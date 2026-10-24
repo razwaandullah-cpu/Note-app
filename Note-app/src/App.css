@@ -1,0 +1,276 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #f4f6fb;
+  color: #25283d;
+}
+
+.app {
+  min-height: 100vh;
+}
+
+.header {
+  background: #5146e5;
+  color: white;
+  text-align: center;
+  padding: 35px 20px;
+}
+
+.header h1 {
+  font-size: 2.2rem;
+  margin-bottom: 10px;
+}
+
+.header p {
+  color: #e5e4ff;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 30px auto;
+  padding: 0 20px;
+}
+
+.note-form {
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+  margin-bottom: 35px;
+}
+
+.note-form input,
+.note-form textarea {
+  width: 100%;
+  padding: 14px;
+  margin-bottom: 15px;
+  border: 1px solid #d9dbea;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-family: inherit;
+  outline: none;
+}
+
+.note-form input:focus,
+.note-form textarea:focus {
+  border-color: #5146e5;
+  box-shadow: 0 0 0 3px rgba(81, 70, 229, 0.12);
+}
+
+.note-form textarea {
+  resize: vertical;
+}
+
+.form-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.save-btn,
+.cancel-btn {
+  padding: 12px 20px;
+  border: none;
+  border-radius: 7px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.save-btn {
+  background: #5146e5;
+  color: white;
+}
+
+.save-btn:hover {
+  background: #4035c8;
+}
+
+.cancel-btn {
+  background: #e7e8f0;
+  color: #25283d;
+}
+
+.notes-section h2 {
+  margin-bottom: 20px;
+}
+
+.empty-message {
+  color: #777b90;
+  padding: 25px 0;
+}
+
+.notes-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.note-card {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  border-top: 4px solid #5146e5;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.05);
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  overflow-wrap: anywhere;
+}
+
+.note-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.note-card:focus-visible {
+  outline: 3px solid #5146e5;
+  outline-offset: 3px;
+}
+
+.card-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.card-header h3 {
+  font-size: 1.15rem;
+  overflow-wrap: anywhere;
+}
+
+.card-icons {
+  display: flex;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+.icon {
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 1rem;
+  transition: transform 0.2s;
+}
+
+.icon:hover {
+  transform: scale(1.15);
+}
+
+.icon:focus-visible,
+.close-icon:focus-visible {
+  outline: 2px solid #5146e5;
+  outline-offset: 3px;
+  border-radius: 3px;
+}
+
+.delete-icon:hover {
+  color: #e63946;
+}
+
+.note-preview {
+  color: #62677b;
+  line-height: 1.6;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.card-footer {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  border-top: 1px solid #eeeef4;
+  padding-top: 12px;
+  color: #85899b;
+  font-size: 0.78rem;
+}
+
+/* Full note modal */
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(20, 22, 40, 0.65);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  z-index: 1000;
+}
+
+.note-modal {
+  position: relative;
+  background: white;
+  width: 100%;
+  max-width: 650px;
+  max-height: 85vh;
+  overflow-y: auto;
+  padding: 35px;
+  border-radius: 14px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+}
+
+.note-modal h2 {
+  padding-right: 30px;
+  margin-bottom: 15px;
+  overflow-wrap: anywhere;
+}
+
+.close-icon {
+  position: absolute;
+  right: 22px;
+  top: 20px;
+  cursor: pointer;
+  font-size: 1.3rem;
+}
+
+.modal-date {
+  color: #85899b;
+  font-size: 0.85rem;
+  margin-bottom: 8px;
+}
+
+.full-note {
+  margin-top: 25px;
+  line-height: 1.8;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.modal-actions {
+  display: flex;
+  gap: 25px;
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px solid #eeeef4;
+}
+
+@media (max-width: 850px) {
+  .notes-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 550px) {
+  .notes-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .header h1 {
+    font-size: 1.8rem;
+  }
+
+  .note-modal {
+    padding: 25px;
+  }
+}
